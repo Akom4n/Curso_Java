@@ -25,7 +25,7 @@ public class Program_ex {
 		
 		System.out.println(product.name + ", " + product.price + ", " + product.quantity);
 		
-		
+		System.out.println("ATUALIZANDO PARA TESTE");
 		
 		sc.close();
 		
