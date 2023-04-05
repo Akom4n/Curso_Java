@@ -40,7 +40,7 @@ public class Program_ex {
 		product.removeProducts(quantity);
 		
 		System.out.println();
-		System.out.println("Update Data: " + product);
+		System.out.println("Update Data: " + product); 
 		
 		sc.close();
 		
