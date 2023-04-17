@@ -31,6 +31,14 @@ public class Product {
 		return price;
 	}
 	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	
 	public double totalValueInStock() {
 		return price * quantity;
 	}
