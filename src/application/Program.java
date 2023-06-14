@@ -30,6 +30,7 @@ public class Program {
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("Invalid position");
+			e.printStackTrace();
 		}
 		catch(InputMismatchException e) {
 			System.out.println("Input error!");
