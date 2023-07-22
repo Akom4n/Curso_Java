@@ -22,7 +22,7 @@ public class Program {
 		System.out.print("Numero: ");
 		int number = sc.nextInt();
 		System.out.print("Data (dd/MM/yyyy): ");
-		LocalDate date = LocalDate.parse(sc.next());
+		LocalDate date = LocalDate.parse(sc.next(), fmt);
 		System.out.print("Valor do contrato: ");
 		double totalValue = sc.nextDouble();
 		
