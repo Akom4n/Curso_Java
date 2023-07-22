@@ -12,6 +12,7 @@ public class RentalService {
 	
 	private TaxService taxService;
 
+	//Recebendo a instancia do taxService diretamente, você evita uma forte acoplação, que pode gerar problemas de manutenção se necessario.
 	public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
 		this.pricePerHour = pricePerHour;
 		this.pricePerDay = pricePerDay;
