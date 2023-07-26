@@ -8,6 +8,8 @@ public class Program {
 	
 	public static void main(String[] args) {
 		
+		//Não é uma herança multipla, apenas uma implementação multipla.
+		
 		ConcretePrinter p = new ConcretePrinter("1000");
 		p.processDoc("My Letter");
 		p.print("My Letter");
