@@ -1,39 +1,24 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import entities.Product;
-import service.CalculationService;
 
 
 public class Program {
 	
 	public static void main(String[] args) {
+		List<Integer> myInts = Arrays.asList(5, 2, 10);
+		printList(myInts);
 		
-		List<Product> list = new ArrayList<>();
-		
-		String path = "/home/denik/Downloads/in.txt";
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-			
-			String line = br.readLine();
-			while (line != null) {
-				String[] fields = line.split(",");
-				list.add(new Product(fields[0], Double.parseDouble(fields[1])));
-				line = br.readLine();
-			}
-			
-			Product x = CalculationService.max(list);
-			System.out.println("Most expensive:");
-			System.out.println(x);
-			
-		} catch (IOException e) {
-			
+		List<String> myStrs = Arrays.asList("Maria", "Alex", "Bob");
+		printList(myStrs);
+	}
+	
+	//O List<?> é um tipo coringa que pode abrigar alguns tipo de list(obj, int, string, double)
+	public static void printList(List<?> list) {
+		// list.add(3); << isso daria um erro, o compilador não sabe qual o tipo especifico que foi adicionado na lista.
+		for (Object obj : list) {
+			System.out.println(obj);
 		}
-		
-	} 
+	} //Porem não é possivel adicionar dados no tipo curinga.
 }
