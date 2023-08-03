@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,18 +8,28 @@ import java.util.List;
 public class Program {
 	
 	public static void main(String[] args) {
-		List<Integer> myInts = Arrays.asList(5, 2, 10);
-		printList(myInts);
 		
-		List<String> myStrs = Arrays.asList("Maria", "Alex", "Bob");
-		printList(myStrs);
+		List<Integer> myInts = Arrays.asList(1, 2, 3, 4);
+		List<Double> myDoubles = Arrays.asList(3.14,6.28);
+		List<Object> myObjs = new ArrayList<Object>();
+
+		
+		copy(myInts, myObjs);
+		printList(myObjs);
+		copy(myDoubles, myObjs);
+		printList(myObjs);
+	} 
+	
+	public static void copy(List<? extends Number> source, List<? super Number> destiny) {
+		for (Number number : source) {
+			destiny.add(number);
+		}
 	}
 	
-	//O List<?> é um tipo coringa que pode abrigar alguns tipo de list(obj, int, string, double)
 	public static void printList(List<?> list) {
-		// list.add(3); << isso daria um erro, o compilador não sabe qual o tipo especifico que foi adicionado na lista.
-		for (Object obj : list) {
-			System.out.println(obj);
+		for(Object obj : list) {
+			System.out.print(obj + " ");
 		}
-	} //Porem não é possivel adicionar dados no tipo curinga.
+		System.out.println();
+	}
 }
