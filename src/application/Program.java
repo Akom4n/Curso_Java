@@ -1,28 +1,26 @@
 package application;
 
-import entities.Client;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Program {
 	
 	public static void main(String[] args) {
 		
-		Client c1 = new Client("Maria", "maria@gmail.com");
-		Client c2 = new Client("Maria", "maria@gmail.com");
-		
-		/* Nesse caso daria true por que o compilador da um tratamento especial annão ser que seja feito um new
-		String s1 = "Test";
-		String s2 = "Test";
-		*/
-		
-		//Dessa forma não constara como true
-		String s1 = new String("Test");
-		String s2 = new String("Test");
-		
-		System.out.println(c1.hashCode());
-		System.out.println(c2.hashCode());
-		System.out.println(c1.equals(c2));
-		System.out.println(c1 == c2); // Da false por que independente do valor ser o mesmo, são objetos diferentes.
-		System.out.println(s1 == s2); //Nesse caso daria true por que o compilador da um tratamento especial annão ser que seja feito um new
-		
+		Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
+		Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
+		//union
+		Set<Integer> c = new TreeSet<>(a);
+		c.addAll(b);
+		System.out.println(c);
+		//intersection
+		Set<Integer> d = new TreeSet<>(a);
+		d.retainAll(b);
+		System.out.println(d);
+		//difference
+		Set<Integer> e = new TreeSet<>(a);
+		e.removeAll(b);
+		System.out.println(e);
 	}
 }
