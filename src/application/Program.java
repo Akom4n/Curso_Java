@@ -1,46 +1,26 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.Instant;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-import entities.LogEntry;
+import entities.Product;
 
 public class Program {
 	
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		Map<Product, Double> stock = new HashMap<>();
 		
-		System.out.println("Enter file full path: ");
-		String path = sc.nextLine();
+		Product p1 = new Product("Tv", 900.0);
+		Product p2 = new Product("Notebook", 1200.0);
+		Product p3 = new Product("Tablet", 400.0);
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))){
-			
-			Set<LogEntry> set = new HashSet<>();
-			
-			String line = br.readLine();
-			while (line != null) {
-				
-				String[] fields = line.split(" ");
-				String username = fields[0];
-				Date moment = Date.from(Instant.parse(fields[1]));
-				
-				set.add(new LogEntry(username, moment));
-				
-				line = br.readLine();
-			}
-			System.out.println("Total users: " + set.size());
-			
-		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
+		stock.put(p1, 10000.0);
+		stock.put(p2, 20000.0);
+		stock.put(p3, 15000.0);
 		
-		sc.close();
+		Product ps = new Product("Tv", 900.0);
+		
+		System.out.println("Contains 'ps' key: " + stock.containsKey(ps));
 	}
 }
