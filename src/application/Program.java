@@ -16,6 +16,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		
+		//Commit para salvar, pois vai começar modulo de dbc
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
